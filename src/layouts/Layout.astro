@@ -1,0 +1,44 @@
+---
+import "@fontsource-variable/ibm-plex-sans";
+import "../styles/global.css";
+import { asset } from "../data/paths";
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "AIRIS Lab | Research projects",
+  description = "Research projects from AIRIS Lab at the University of Florida: humanoid robots for construction, surgical robotics, healthy buildings, and learning-based mobility.",
+} = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="light" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" href={asset("favicon.svg")} type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="site-shell">
+      <main id="main" tabindex="-1"><slot /></main>
+      <footer class="site-footer">
+        <div class="footer-row">
+          <p>© 2026 AIRIS Lab</p>
+          <nav aria-label="Footer"><a href="#main">Back to top ↑</a></nav>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+{
+  "date": "2026-11-10T22:49:10.859Z",
+  "base": "http://127.0.0.1:4525",
+  "standard": "WCAG 2.1 A and AA automated checks; not a compliance certification",
+  "scans": [
+    {
+      "mode": "desktop",
+      "violations": [],
+      "incomplete": [],
+      "passes": 17
+    },
+    {
+      "mode": "mobile",
+      "violations": [],
+      "incomplete": [],
+      "passes": 17
+    },
+    {
+      "mode": "text-spacing",
+      "violations": [],
+      "incomplete": [],
+      "passes": 17
+    }
+  ],
+  "checks": [
+    {
+      "name": "Page loads",
+      "pass": true,
+      "detail": 200
+    },
+    {
+      "name": "One h1 and sequential headings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Images load and have alternative text",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Restrictive Content-Security-Policy",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Declared English language",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Single static page without embedded media",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Every research project is listed with its website",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Skip link is first in keyboard order",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Skip link focuses main",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Keyboard focus is visible",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop reflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile reflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "text-spacing reflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "No browser or CSP errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "violationCount": 0,
+  "failedChecks": [],
+  "manualLimitations": [
+    "Screen-reader usability has not been fully evaluated.",
+    "Linked project websites are checked in their own repositories.",
+    "Automated checks cannot establish full ADA/WCAG compliance."
+  ]
+}

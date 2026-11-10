@@ -1,0 +1,55 @@
+# Build, check, and publish the lab homepage.
+# GitHub Pages for this repository serves the gh-pages branch, so this workflow
+# pushes the built site there instead of using the Pages deployment action.
+name: Build and publish
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      SITE_URL: https://${{ github.repository_owner }}.github.io
+      BASE_PATH: /
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - name: Audit dependencies and deployment scope
+        run: npm run audit:security
+      - run: npm run lint
+      - name: Build
+        run: npm run build
+      - name: Verify WCAG 2.1 AA before publishing
+        run: |
+          if command -v google-chrome > /dev/null 2>&1; then export CHROME_PATH="$(command -v google-chrome)"; else npx playwright install --with-deps chromium; fi
+          npm run preview -- --host 127.0.0.1 --port 4332 > /tmp/preview.log 2>&1 &
+          for attempt in $(seq 1 30); do curl --silent --fail http://127.0.0.1:4332/ > /dev/null && break; sleep 1; done
+          TEST_URL=http://127.0.0.1:4332 npm run test:a11y
+      - name: Save accessibility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-report
+          path: reports/axe-wcag21aa.json
+      - name: Publish to gh-pages
+        run: |
+          cd dist
+          touch .nojekyll
+          git init -q -b gh-pages
+          git add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "Publish ${GITHUB_SHA}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages

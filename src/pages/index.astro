@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { asset } from "../data/paths";
+import { projects } from "../data/projects";
+---
+
+<Layout>
+  <section class="lab-intro" aria-labelledby="lab-name">
+    <h1 id="lab-name">AIRIS Lab</h1>
+    <p>Research projects led by Shuai Li, Department of Civil and Coastal Engineering, University of Florida.</p>
+  </section>
+
+  <section class="section" id="research" aria-labelledby="research-heading">
+    <h2 id="research-heading">Research projects</h2>
+    <div class="research-list">
+      {
+        projects.map((project) => (
+          <article class="research-item" id={project.id} aria-labelledby={`${project.id}-title`}>
+            <figure class="paper-figure">
+              <img
+                src={asset(`images/${project.image}`)}
+                width={project.width}
+                height={project.height}
+                alt={project.alt}
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <div class="paper-body">
+              <p class="paper-topic">{project.topic}</p>
+              <h3 id={`${project.id}-title`}>
+                <a href={project.url}>{project.title}</a>
+              </h3>
+              <p class="paper-description">{project.description}</p>
+              <nav class="paper-links" aria-label={`${project.title} resources`}>
+                <a href={project.url} aria-label={`Project website: ${project.title}`}>
+                  Project website <span aria-hidden="true">↗</span>
+                </a>
+              </nav>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
