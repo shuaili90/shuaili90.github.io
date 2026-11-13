@@ -1,4 +1,4 @@
-// Research projects shown on the lab homepage, in display order.
+// Selected research projects shown on the lab homepage, in display order.
 // Each card links to its own project website; images live in public/images/.
 export interface Project {
   id: string;

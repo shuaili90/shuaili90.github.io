@@ -46,7 +46,7 @@ try {
   check("Single static page without embedded media", structure.media === 0);
   check(
     "Every research project is listed with its website",
-    JSON.stringify(await page.locator(".research-item h3").allTextContents()) === JSON.stringify(projects.map((p) => p.title)) &&
+    JSON.stringify(await page.locator(".research-item .paper-title").allTextContents()) === JSON.stringify(projects.map((p) => p.title)) &&
       (await page.locator(".paper-links a").evaluateAll((links) => links.map((a) => a.href))).join() === projects.map((p) => p.url).join(),
   );
   await page.evaluate(() => {

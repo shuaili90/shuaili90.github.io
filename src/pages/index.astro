@@ -5,13 +5,8 @@ import { projects } from "../data/projects";
 ---
 
 <Layout>
-  <section class="lab-intro" aria-labelledby="lab-name">
-    <h1 id="lab-name">AIRIS Lab</h1>
-    <p>Research projects led by Shuai Li.</p>
-  </section>
-
-  <section class="section" id="research" aria-labelledby="research-heading">
-    <h2 id="research-heading">Research projects</h2>
+  <section class="lab-projects" id="research" aria-labelledby="research-heading">
+    <h1 id="research-heading">Selected research projects</h1>
     <div class="research-list">
       {
         projects.map((project) => (
@@ -28,9 +23,9 @@ import { projects } from "../data/projects";
             </figure>
             <div class="paper-body">
               <p class="paper-topic">{project.topic}</p>
-              <h3 id={`${project.id}-title`}>
+              <h2 class="paper-title" id={`${project.id}-title`}>
                 <a href={project.url}>{project.title}</a>
-              </h3>
+              </h2>
               <p class="paper-description">{project.description}</p>
               <nav class="paper-links" aria-label={`${project.title} resources`}>
                 <a href={project.url} aria-label={`Project website: ${project.title}`}>

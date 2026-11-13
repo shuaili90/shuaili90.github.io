@@ -241,11 +241,20 @@ details p {
   margin-bottom: 0.4rem;
   font-size: 0.66rem;
 }
+.paper-body .paper-title {
+  font-family: inherit;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  font-weight: 600;
+  letter-spacing: normal;
+}
 .paper-body h3 a,
+.paper-body .paper-title a,
 .publication-list h3 a {
   text-decoration: none;
 }
 .paper-body h3 a:hover,
+.paper-body .paper-title a:hover,
 .publication-list h3 a:hover {
   text-decoration: underline;
 }
@@ -475,13 +484,20 @@ details p {
   }
 }
 /* Lab homepage */
-.lab-intro {
+.lab-projects {
   padding-top: 4rem;
 }
-.lab-intro h1 {
-  margin-bottom: 0.6rem;
+.lab-projects > h1 {
+  font-size: 1.85rem;
+  margin: 0 0 1.35rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.7rem;
 }
-.lab-intro p {
-  color: var(--muted);
-  max-width: 60ch;
+@media (max-width: 520px) {
+  .lab-projects {
+    padding-top: 2.75rem;
+  }
+  .lab-projects > h1 {
+    font-size: 1.65rem;
+  }
 }
