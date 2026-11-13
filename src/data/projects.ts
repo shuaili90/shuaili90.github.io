@@ -43,6 +43,15 @@ export const projects: Project[] = [
     alt: "Left, an overhead photo of a floor with a box, a phone, a bottle, and a crumpled plastic item outlined; right, the matching elevation map, where only the boxes rise as peaks and the small items barely register.",
   },
   {
+    id: "foresite",
+    topic: "Humanoid robots · Construction safety",
+    title: "ForeSite: Adaptive Whole-Body Struck-By Hazard Avoidance for Humanoid Material Transport on Construction Sites",
+    description: "Choosing walking speed and posture for a humanoid that carries material past struck-by hazards on a construction site.",
+    url: `${site}/ForeSite-page/`,
+    image: "foresite.webp", width: 1200, height: 675,
+    alt: "A simulated Unitree G1 humanoid carries a box under an overhead hazard on a building site, with its posture labeled Bend.",
+  },
+  {
     id: "robotic-excavator",
     topic: "Construction machines · Autonomy",
     title: "Advancing Construction Machine Autonomy on Earth and Beyond",
