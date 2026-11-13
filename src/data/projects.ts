@@ -178,6 +178,15 @@ export const projects: Project[] = [
     alt: "An animated classroom with a teacher, students, an air-handling unit, and symbolic airborne particles, from the school research film.",
   },
   {
+    id: "mathbridge",
+    topic: "AI for education · Mathematics",
+    title: "MathBridge AI: A Student-Aware AI Platform for Connected and Contextualized K‑12 Mathematics Support",
+    description: "A student-aware platform connecting curriculum-grounded math learning, personalized support, and teacher and family insights.",
+    url: `${site}/mathbridge-ai-project-page/`,
+    image: "mathbridge.webp", width: 964, height: 459,
+    alt: "Proposed MathBridge AI platform: curriculum resources support retrieval and core AI agents for question understanding, reasoning, and student modeling. Teacher insight and parent summary agents connect school and home, supported by memory and privacy and security modules.",
+  },
+  {
     id: "mixed-traffic",
     topic: "Multi-agent learning · Mobility",
     title: "Network-Scale Mixed-Traffic Control with Multi-Agent Reinforcement Learning",
